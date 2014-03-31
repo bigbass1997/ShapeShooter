@@ -1,6 +1,9 @@
 package tm.info.bigbass1997.shapeshooter.managers;
 
+<<<<<<< HEAD
 import tm.info.bigbass1997.shapeshooter.entities.Player;
+=======
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 import tm.info.bigbass1997.shapeshooter.gamestates.*;
 
 public class GameStateManager {
@@ -8,9 +11,12 @@ public class GameStateManager {
 	private GameState gameState;
 	private GameState lastGameState;
 	
+<<<<<<< HEAD
 	public UpgradesManager um;
 	public Player player;
 	
+=======
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 	private int currentState;
 	private int lastState;
 	
@@ -25,9 +31,12 @@ public class GameStateManager {
 	public GameStateManager(){
 		setState(LEVEL1STATE);
 		lastState = 0;
+<<<<<<< HEAD
 		
 		player = new Player();
 		um = new UpgradesManager(player);
+=======
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 	}
 	
 	public void setState(int state){

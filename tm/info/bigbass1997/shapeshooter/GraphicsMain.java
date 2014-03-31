@@ -3,7 +3,10 @@ package tm.info.bigbass1997.shapeshooter;
 import tm.info.bigbass1997.shapeshooter.managers.GameInputProcessor;
 import tm.info.bigbass1997.shapeshooter.managers.GameKeys;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
+<<<<<<< HEAD
 import tm.info.bigbass1997.shapeshooter.managers.UpgradesManager;
+=======
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;

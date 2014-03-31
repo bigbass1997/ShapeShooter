@@ -3,7 +3,10 @@ package tm.info.bigbass1997.shapeshooter.entities.projectiles;
 import java.util.ArrayList;
 
 import tm.info.bigbass1997.shapeshooter.entities.Player;
+<<<<<<< HEAD
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
+=======
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 import tm.info.bigbass1997.shapeshooter.managers.UpgradesManager;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -15,17 +18,27 @@ public class ProjectileManager {
 	
 	private final int kinds = 2;
 	
+<<<<<<< HEAD
+=======
+	private Player player;
+	private UpgradesManager um;
+	
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 	private ArrayList<Float> nextShots;
 	private ArrayList<Float> previousShots;
 	private ArrayList<Float> delays; // Value: 10 = 1sec
 	
 	private ArrayList<Projectile> projectiles;
 	
+<<<<<<< HEAD
 	private GameStateManager gsm;
 	
 	public ProjectileManager(GameStateManager gsm){
 		this.gsm = gsm;
 		
+=======
+	public ProjectileManager(Player player, UpgradesManager um){
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 		nextShots = new ArrayList<Float>(kinds);
 		previousShots = new ArrayList<Float>(kinds);
 		delays = new ArrayList<Float>(kinds);
@@ -44,6 +57,15 @@ public class ProjectileManager {
 		//Delays
 		delays.add(BASIC, 10.0f);
 		delays.add(SPEEDY, 2.0f);
+<<<<<<< HEAD
+=======
+		
+		//INHERIT Player
+		this.player = player;
+		
+		//INHERIT UpgradesManager
+		this.um = um;
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 	}
 	
 	public void shoot(){
@@ -54,19 +76,34 @@ public class ProjectileManager {
 		nextShots.set(SPEEDY, sysTime);
 		//Check for Shot\\
 		
+<<<<<<< HEAD
 		if(gsm.um.getUnlocked().contains(gsm.um.BASIC_GUN)){
 			//BASIC Check
 			if(nextShots.get(BASIC) + 1 > previousShots.get(BASIC) + delays.get(BASIC)){
 				projectiles.add(new ProjectileBasic(gsm.player.getX() + gsm.player.getXAxisCenter() - 4.0f, gsm.player.getY() + gsm.player.getHeight() - 4.0f));
+=======
+		if(um.getUnlocked().contains(um.BASIC_GUN)){
+			//BASIC Check
+			if(nextShots.get(BASIC) + 1 > previousShots.get(BASIC) + delays.get(BASIC)){
+				projectiles.add(new ProjectileBasic(player.getX() + player.getXAxisCenter() - 4.0f, player.getY() + player.getHeight() - 4.0f));
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 				previousShots.set(BASIC, sysTime);
 			}
 		}
 
+<<<<<<< HEAD
 		if(gsm.um.getUnlocked().contains(gsm.um.SPEEDY_GUN)){
 			//SPEEDY Check
 			if(nextShots.get(BASIC) + 1 > previousShots.get(SPEEDY) + delays.get(SPEEDY)){
 				projectiles.add(new ProjectileSpeedy(gsm.player.getX(), gsm.player.getY() + gsm.player.getHeight() - 4.0f));
 				projectiles.add(new ProjectileSpeedy(gsm.player.getX() + gsm.player.getWidth() - 3.0f, gsm.player.getY() + gsm.player.getHeight() - 4.0f));
+=======
+		if(um.getUnlocked().contains(um.SPEEDY_GUN)){
+			//SPEEDY Check
+			if(nextShots.get(BASIC) + 1 > previousShots.get(SPEEDY) + delays.get(SPEEDY)){
+				projectiles.add(new ProjectileSpeedy(player.getX(), player.getY() + 6.0f));
+				projectiles.add(new ProjectileSpeedy(player.getX() + player.getWidth() - 3.0f, player.getY() + player.getHeight() - 4.0f));
+>>>>>>> 4f6b723350d3e781488dfbdac2c61291c3eed106
 				previousShots.set(SPEEDY, sysTime);
 			}
 		}
