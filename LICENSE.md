@@ -1,4 +1,4 @@
-This work is bounded by the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
+This work is bound by the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
 
 For more information, please see
 <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
