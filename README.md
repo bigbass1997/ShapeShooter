@@ -32,8 +32,7 @@ This list is likely to expand later...
 ------
 __APIs/Engines__  
 This project uses LibGDX as its "engine".  
-If you have any issues importing the source into a runnable project on eclipse,  
-please notify me by email at: bigbass1997.website@gmail.com.
+If you have any issues importing the source into a runnable project on eclipse, please submit an [issue](https://github.com/bigbass1997/ShapeShooter/issues).
 
 Thanks!
 
