@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GraphicsMain implements ApplicationListener {
+	
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
 	
