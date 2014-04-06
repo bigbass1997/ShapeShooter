@@ -8,6 +8,6 @@ public class ProjectileSpeedy extends Projectile{
 		width = 3;
 		height = 6;
 		
-		speed = 300;
+		speed = 400;
 	}
 }

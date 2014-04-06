@@ -2,9 +2,7 @@ package tm.info.bigbass1997.shapeshooter.entities.projectiles;
 
 import java.util.ArrayList;
 
-import tm.info.bigbass1997.shapeshooter.entities.Player;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
-import tm.info.bigbass1997.shapeshooter.managers.UpgradesManager;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
@@ -43,7 +41,7 @@ public class ProjectileManager {
 		
 		//Delays
 		delays.add(BASIC, 10.0f);
-		delays.add(SPEEDY, 2.0f);
+		delays.add(SPEEDY, 5.0f);
 	}
 	
 	public void shoot(){
