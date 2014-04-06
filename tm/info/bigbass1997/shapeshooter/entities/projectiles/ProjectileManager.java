@@ -52,7 +52,7 @@ public class ProjectileManager {
 		nextShots.set(SPEEDY, sysTime);
 		//Check for Shot\\
 		
-		if(gsm.um.getUnlocked().contains(gsm.um.BASIC_GUN)){
+		if(gsm.um.getUnlocked().contains(gsm.um.BASIC_GUN_T1)){
 			//BASIC Check
 			if(nextShots.get(BASIC) + 1 > previousShots.get(BASIC) + delays.get(BASIC)){
 				projectiles.add(new ProjectileBasic(gsm.player.getX() + gsm.player.getXAxisCenter() - 4.0f, gsm.player.getY() + gsm.player.getHeight() - 4.0f));
@@ -60,7 +60,7 @@ public class ProjectileManager {
 			}
 		}
 
-		if(gsm.um.getUnlocked().contains(gsm.um.SPEEDY_GUN)){
+		if(gsm.um.getUnlocked().contains(gsm.um.SPEEDY_GUN_T1)){
 			//SPEEDY Check
 			if(nextShots.get(BASIC) + 1 > previousShots.get(SPEEDY) + delays.get(SPEEDY)){
 				projectiles.add(new ProjectileSpeedy(gsm.player.getX(), gsm.player.getY() + gsm.player.getHeight() - 4.0f));

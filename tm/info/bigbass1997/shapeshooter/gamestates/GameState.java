@@ -4,12 +4,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import tm.info.bigbass1997.shapeshooter.entities.projectiles.ProjectileManager;
 import tm.info.bigbass1997.shapeshooter.managers.DrawManager;
+import tm.info.bigbass1997.shapeshooter.managers.FontManager;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
 public abstract class GameState {
 	
 	protected GameStateManager gsm;
 
+	protected FontManager fm;
 	protected ShapeRenderer sr;
 	protected DrawManager dm;
 	
@@ -19,8 +21,9 @@ public abstract class GameState {
 		this.gsm = gsm;
 		
 		sr = new ShapeRenderer();
-		dm = new DrawManager(sr);
-		
+		fm = new FontManager();
+		dm = new DrawManager(sr, fm);
+
 		pm = new ProjectileManager(gsm);
 		
 		init();

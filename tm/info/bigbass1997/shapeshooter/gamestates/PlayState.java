@@ -1,5 +1,6 @@
 package tm.info.bigbass1997.shapeshooter.gamestates;
 
+import tm.info.bigbass1997.shapeshooter.GraphicsMain;
 import tm.info.bigbass1997.shapeshooter.managers.GameKeys;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
@@ -25,9 +26,9 @@ public class PlayState extends GameState{
 		//Update ProjectileManager
 		pm.update(delta);
 		
-		for(int i = 0; i < gsm.um.getUnlocked().size(); i++){
+		/*for(int i = 0; i < gsm.um.getUnlocked().size(); i++){
 			System.out.println(gsm.um.getUnlocked().get(i));
-		}
+		}*/
 	}
 
 	@Override
@@ -35,6 +36,8 @@ public class PlayState extends GameState{
 		gsm.player.draw(sr);
 		
 		pm.draw(sr);
+		
+		dm.String("$" + gsm.um.money, 5, GraphicsMain.sHeight - 5, fm.fs1);
 	}
 
 	@Override
