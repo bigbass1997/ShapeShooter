@@ -3,7 +3,8 @@
 ------
 __Description__  
 ShapeShooter is a top-down shooting defense game.  
-You control a cube who wants to destroy the 2 Dimensional realm.
+You control a cube who wants to destroy the 2 Dimensional realm.  
+[Early-Development Preview](http://i.imgur.com/dDbGUNg.png)
 
 ------
 __Controls__  
