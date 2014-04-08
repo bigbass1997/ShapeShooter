@@ -12,7 +12,7 @@ public class PlayState extends GameState{
 
 	@Override
 	public void init() {
-		
+		em.deployEnemy(em.SQUARE, 20, GraphicsMain.sHeight + 50);
 	}
 
 	@Override
@@ -29,6 +29,8 @@ public class PlayState extends GameState{
 		/*for(int i = 0; i < gsm.um.getUnlocked().size(); i++){
 			System.out.println(gsm.um.getUnlocked().get(i));
 		}*/
+		
+		em.update(delta);
 	}
 
 	@Override
@@ -38,6 +40,8 @@ public class PlayState extends GameState{
 		pm.draw(sr);
 		
 		dm.String("$" + gsm.um.money, 5, GraphicsMain.sHeight - 5, fm.fs1);
+		
+		em.draw(sr);
 	}
 
 	@Override

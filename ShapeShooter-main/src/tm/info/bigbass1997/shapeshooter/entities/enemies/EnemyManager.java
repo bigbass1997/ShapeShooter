@@ -16,11 +16,10 @@ public class EnemyManager {
 	private SpriteBatch batch;
 	
 	private Texture spritesheet;
-	private TextureRegion test;
 	
 	private ArrayList<Enemy> enemies;
 	private ArrayList<TextureRegion> regions;
-	private final int TEST = 0;
+	public final int SQUARE = 0; //SETS the ID for the type & the location, of REGIONS, for its TEXTURE//
 
 	private GameStateManager gsm;
 	
@@ -29,18 +28,25 @@ public class EnemyManager {
 		
 		spritesheet = new Texture(Gdx.files.internal("data/spritesheet.png"));
 		
-		int SIZE = 32;
-		regions = new ArrayList<TextureRegion>(256);
-		for(int c = 0; c < regions.size(); c++){
-			for(int r = 0; r < regions.size(); r++){
-				regions.add(new TextureRegion(spritesheet, (c * SIZE) + 1, (r * SIZE) + 1, SIZE, SIZE));
+		int AREA = 32;
+		int SIZE = 256;
+		regions = new ArrayList<TextureRegion>(SIZE);
+		for(int c = 0; c < Math.sqrt(SIZE); c++){
+			for(int r = 0; r < Math.sqrt(SIZE); r++){
+				regions.add(new TextureRegion(spritesheet, (c * AREA), (r * AREA), AREA, AREA));
 			}
 		}
+		//regions.get(SQUARE).setRegion(regions.get(SQUARE).getRegionX(), regions.get(SQUARE).getRegionY(), AREA * 2, AREA);
 		
 		enemies = new ArrayList<Enemy>(100);
 		////HOW TO ADD: enemies.add(new Enemy_TYPE_OF_ENEMY(X, Y, regions.get(TEST)));
 	}
-
+	
+	public void deployEnemy(int type, float x, float y){
+		if(type == SQUARE) enemies.add(new EnemySquare(regions.get(SQUARE), x, y));
+		//else if(type == SOMETHING_ELSE) enemies.add(new EnemySOMETHING_ELSE(regions.get(SOMETHING_ELSE), x, y));
+	}
+	
 	public void draw(ShapeRenderer sr){
 		for(int i = 0; i < enemies.size(); i++){
 			if(enemies.get(i) != null){
