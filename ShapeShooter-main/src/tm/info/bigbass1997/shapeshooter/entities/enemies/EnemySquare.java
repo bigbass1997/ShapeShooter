@@ -5,11 +5,13 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class EnemySquare extends Enemy {
 
-	public EnemySquare(TextureRegion texture, float y, float x) {
+	public EnemySquare(TextureRegion texture, float x, float y) {
 		super(texture, x, y);
 		
 		width = 32;
 		height = 32;
+		
+		speed = -100.0f;
 		
 		sprite = new Sprite(texture);
 	}

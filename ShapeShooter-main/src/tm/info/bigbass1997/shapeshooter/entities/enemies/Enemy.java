@@ -20,9 +20,6 @@ public class Enemy {
 
 	protected float speed;
 	
-	protected float lifeTime;
-	protected float lifeTimer;
-	
 	protected boolean remove;
 	
 	private SpriteBatch batch;
@@ -37,14 +34,9 @@ public class Enemy {
 		batch = new SpriteBatch();
 		
 		remove = false;
-		
-		lifeTime = 2.0f;
-		lifeTimer = 0.0f;
 	}
 
 	public void draw(){
-		System.out.println(texture);
-		System.out.println(sprite);
 		if(texture != null && sprite != null){
 			System.out.println("Drawing Enemy");
 			batch.begin();
@@ -60,11 +52,12 @@ public class Enemy {
 		x += dx * delta;
 		y += dy * delta;
 		
-		sprite.setX(x);
-		sprite.setY(y);
+		sprite.setPosition(x, y);
+
+		System.out.println("x: " + x + " | y: " + y);
+		System.out.println("x: " + sprite.getX() + " | y: " + sprite.getY());
 		
-		lifeTimer += delta;
-		if(lifeTimer > lifeTime){
+		if(y < -height){
 			remove = true;
 		}
 	}

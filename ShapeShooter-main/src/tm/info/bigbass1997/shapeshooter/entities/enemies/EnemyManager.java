@@ -12,9 +12,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
 public class EnemyManager {
-	
-	private SpriteBatch batch;
-	
 	private Texture spritesheet;
 	
 	private ArrayList<Enemy> enemies;

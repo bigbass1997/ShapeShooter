@@ -12,7 +12,7 @@ public class PlayState extends GameState{
 
 	@Override
 	public void init() {
-		em.deployEnemy(em.SQUARE, 20, GraphicsMain.sHeight + 50);
+		em.deployEnemy(em.SQUARE, 20, GraphicsMain.sHeight);
 	}
 
 	@Override
