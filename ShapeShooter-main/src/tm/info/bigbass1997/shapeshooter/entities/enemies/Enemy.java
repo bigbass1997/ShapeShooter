@@ -1,10 +1,11 @@
 package tm.info.bigbass1997.shapeshooter.entities.enemies;
 
-import java.util.ArrayList;
+import tm.info.bigbass1997.shapeshooter.managers.DrawManager;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 
 
 public class Enemy {
@@ -26,6 +27,8 @@ public class Enemy {
 	protected TextureRegion texture;
 	protected Sprite sprite;
 	
+	protected Rectangle hitbox;
+	
 	public Enemy(TextureRegion texture, float x, float y){
 		this.x = x;
 		this.y = y;
@@ -35,14 +38,15 @@ public class Enemy {
 		
 		remove = false;
 	}
-
-	public void draw(){
+	
+	public void draw(DrawManager dm){
 		if(texture != null && sprite != null){
 			System.out.println("Drawing Enemy");
 			batch.begin();
 			sprite.draw(batch);
 			batch.end();
 		}
+		dm.Rect(x, y, width, height, 0xFF0000FF);
 	}
 	
 	public void update(float delta){
@@ -53,7 +57,7 @@ public class Enemy {
 		y += dy * delta;
 		
 		sprite.setPosition(x, y);
-
+		
 		System.out.println("x: " + x + " | y: " + y);
 		System.out.println("x: " + sprite.getX() + " | y: " + sprite.getY());
 		

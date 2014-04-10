@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
+import tm.info.bigbass1997.shapeshooter.managers.DrawManager;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
 public class EnemyManager {
@@ -19,9 +20,11 @@ public class EnemyManager {
 	public final int SQUARE = 0; //SETS the ID for the type & the location, of REGIONS, for its TEXTURE//
 
 	private GameStateManager gsm;
+	private DrawManager dm;
 	
-	public EnemyManager(GameStateManager gsm){
+	public EnemyManager(GameStateManager gsm, DrawManager dm){
 		this.gsm = gsm;
+		this.dm = dm;
 		
 		spritesheet = new Texture(Gdx.files.internal("data/spritesheet.png"));
 		
@@ -47,7 +50,7 @@ public class EnemyManager {
 	public void draw(ShapeRenderer sr){
 		for(int i = 0; i < enemies.size(); i++){
 			if(enemies.get(i) != null){
-				enemies.get(i).draw();
+				enemies.get(i).draw(dm);
 			}
 		}
 	}

@@ -27,7 +27,7 @@ public abstract class GameState {
 		dm = new DrawManager(sr, fm);
 
 		pm = new ProjectileManager(gsm);
-		em = new EnemyManager(gsm);
+		em = new EnemyManager(gsm, dm);
 		
 		init();
 	}
