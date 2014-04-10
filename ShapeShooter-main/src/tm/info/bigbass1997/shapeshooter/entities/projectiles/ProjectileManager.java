@@ -88,4 +88,8 @@ public class ProjectileManager {
 			}
 		}
 	}
+	
+	public ArrayList<Projectile> getProjectiles(){
+		return projectiles;
+	}
 }

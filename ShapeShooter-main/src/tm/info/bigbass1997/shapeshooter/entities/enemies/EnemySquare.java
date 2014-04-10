@@ -1,21 +1,25 @@
 package tm.info.bigbass1997.shapeshooter.entities.enemies;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
+
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 
 public class EnemySquare extends Enemy {
 
-	public EnemySquare(TextureRegion texture, float x, float y) {
-		super(texture, x, y);
+	public EnemySquare(TextureRegion texture, float x, float y, GameStateManager gsm) {
+		super(texture, x, y, gsm);
 		
-		width = 16;
-		height = 16;
+		width = 32;
+		height = 32;
 		
-		speed = -100.0f;
-		
-		sprite = new Sprite(texture);
+		speed = -70.0f;
 		
 		hitbox = new Rectangle(x, y, width, height);
+		
+		maxHealth = 2.0f;
+		curHealth = maxHealth;
+		
+		reward = 10;
 	}
 }

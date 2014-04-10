@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
+import tm.info.bigbass1997.shapeshooter.entities.projectiles.Projectile;
+import tm.info.bigbass1997.shapeshooter.entities.projectiles.ProjectileManager;
 import tm.info.bigbass1997.shapeshooter.managers.DrawManager;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
@@ -43,7 +45,7 @@ public class EnemyManager {
 	}
 	
 	public void deployEnemy(int type, float x, float y){
-		if(type == SQUARE) enemies.add(new EnemySquare(regions.get(SQUARE), x, y));
+		if(type == SQUARE) enemies.add(new EnemySquare(regions.get(SQUARE), x, y, gsm));
 		//else if(type == SOMETHING_ELSE) enemies.add(new EnemySOMETHING_ELSE(regions.get(SOMETHING_ELSE), x, y));
 	}
 	
@@ -55,11 +57,11 @@ public class EnemyManager {
 		}
 	}
 	
-	public void update(float delta){
+	public void update(float delta, ProjectileManager pm){
 		for(int i = 0; i < enemies.size(); i++){
 			Enemy enemy = enemies.get(i);
 			if(enemy != null){
-				enemy.update(delta);
+				enemy.update(delta, pm);
 				
 				if(enemy.remove){
 					enemies.remove(i);

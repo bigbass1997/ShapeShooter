@@ -3,6 +3,7 @@ package tm.info.bigbass1997.shapeshooter.entities.projectiles;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Rectangle;
 
 public class Projectile {
 	
@@ -17,10 +18,14 @@ public class Projectile {
 	protected float lifeTime;
 	protected float lifeTimer;
 	
-	protected boolean remove;
+	public boolean remove;
 	
 	protected int width;
 	protected int height;
+	
+	public Rectangle hitbox;
+	
+	protected float damage;
 	
 	public Projectile(float x, float y){
 		this.x = x;
@@ -47,9 +52,15 @@ public class Projectile {
 		x += dx * delta;
 		y += dy * delta;
 		
+		hitbox.setPosition(x, y);
+		
 		lifeTimer += delta;
 		if(lifeTimer > lifeTime){
 			remove = true;
 		}
+	}
+	
+	public float getDamage(){
+		return damage;
 	}
 }

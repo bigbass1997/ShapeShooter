@@ -1,12 +1,16 @@
 package tm.info.bigbass1997.shapeshooter.entities.enemies;
 
+import java.util.ArrayList;
+
+import tm.info.bigbass1997.shapeshooter.entities.projectiles.Projectile;
+import tm.info.bigbass1997.shapeshooter.entities.projectiles.ProjectileManager;
 import tm.info.bigbass1997.shapeshooter.managers.DrawManager;
+import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
-
 
 public class Enemy {
 	
@@ -29,10 +33,21 @@ public class Enemy {
 	
 	protected Rectangle hitbox;
 	
-	public Enemy(TextureRegion texture, float x, float y){
+	//curHealth stands for Current Health
+	protected float curHealth;
+	protected float maxHealth;
+	
+	protected int reward;
+	
+	private GameStateManager gsm;
+	
+	public Enemy(TextureRegion texture, float x, float y, GameStateManager gsm){
 		this.x = x;
 		this.y = y;
 		this.texture = texture;
+		this.gsm = gsm;
+		
+		sprite = new Sprite(texture);
 		
 		batch = new SpriteBatch();
 		
@@ -41,15 +56,13 @@ public class Enemy {
 	
 	public void draw(DrawManager dm){
 		if(texture != null && sprite != null){
-			System.out.println("Drawing Enemy");
 			batch.begin();
 			sprite.draw(batch);
 			batch.end();
 		}
-		dm.Rect(x, y, width, height, 0xFF0000FF);
 	}
 	
-	public void update(float delta){
+	public void update(float delta, ProjectileManager pm){
 		dx = 0;
 		dy = speed;
 		
@@ -57,12 +70,39 @@ public class Enemy {
 		y += dy * delta;
 		
 		sprite.setPosition(x, y);
+		hitbox.setPosition(x, y);
 		
-		System.out.println("x: " + x + " | y: " + y);
+		/*System.out.println("x: " + x + " | y: " + y);
 		System.out.println("x: " + sprite.getX() + " | y: " + sprite.getY());
+		*/
+		ArrayList<Projectile> projectiles = pm.getProjectiles();
+		for(int i = 0; i < projectiles.size(); i++){
+			if(projectiles.get(i).hitbox.overlaps(hitbox)){
+				projectiles.get(i).remove = true;
+				hit(projectiles.get(i).getDamage());
+			}
+		}
 		
 		if(y < -height){
-			remove = true;
+			remove();
 		}
+	}
+	
+	public void hit(float damage){
+		curHealth -= damage;
+		if(curHealth <= 0.0f) killed();
+	}
+	
+	public void remove(){
+		remove = true;
+	}
+	
+	private void killed(){
+		remove();
+		reward();
+	}
+	
+	private void reward(){
+		gsm.um.money += reward;
 	}
 }

@@ -30,7 +30,7 @@ public class PlayState extends GameState{
 			System.out.println(gsm.um.getUnlocked().get(i));
 		}*/
 		
-		em.update(delta);
+		em.update(delta, pm);
 	}
 
 	@Override
