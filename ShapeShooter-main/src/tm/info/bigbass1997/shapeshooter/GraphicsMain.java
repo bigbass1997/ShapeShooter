@@ -3,6 +3,7 @@ package tm.info.bigbass1997.shapeshooter;
 import tm.info.bigbass1997.shapeshooter.managers.GameInputProcessor;
 import tm.info.bigbass1997.shapeshooter.managers.GameKeys;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
+import tm.info.bigbass1997.shapeshooter.managers.SettingsManager;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -16,7 +17,9 @@ public class GraphicsMain implements ApplicationListener {
 	private SpriteBatch batch;
 	
 	private GameStateManager gsm;
-
+	
+	public SettingsManager sm;
+	
 	public static float sWidth;
 	public static float sHeight;
 	
@@ -31,6 +34,7 @@ public class GraphicsMain implements ApplicationListener {
 		Gdx.input.setInputProcessor(new GameInputProcessor());
 		
 		gsm = new GameStateManager();
+		sm = new SettingsManager();
 	}
 
 	@Override

@@ -39,13 +39,15 @@ public class Enemy {
 	
 	protected int reward;
 	
-	private GameStateManager gsm;
+	protected GameStateManager gsm;
+	protected EnemyManager em;
 	
-	public Enemy(TextureRegion texture, float x, float y, GameStateManager gsm){
+	public Enemy(TextureRegion texture, float x, float y, GameStateManager gsm, EnemyManager em){
 		this.x = x;
 		this.y = y;
 		this.texture = texture;
 		this.gsm = gsm;
+		this.em = em;
 		
 		sprite = new Sprite(texture);
 		
@@ -59,6 +61,9 @@ public class Enemy {
 			batch.begin();
 			sprite.draw(batch);
 			batch.end();
+			
+			dm.Rect(x - 5, y - 6, width + 10, 3, 0xDD0000FF);
+			dm.Rect(x - 5, y - 6, (width + 10) * (curHealth / maxHealth), 3, 0x00FF00FF);
 		}
 	}
 	
@@ -90,19 +95,19 @@ public class Enemy {
 	
 	public void hit(float damage){
 		curHealth -= damage;
-		if(curHealth <= 0.0f) killed();
+		if(curHealth <= 0.0f && !remove) killed(em);
 	}
 	
 	public void remove(){
 		remove = true;
 	}
 	
-	private void killed(){
+	public void killed(EnemyManager em){
 		remove();
 		reward();
 	}
 	
-	private void reward(){
+	protected void reward(){
 		gsm.um.money += reward;
 	}
 }

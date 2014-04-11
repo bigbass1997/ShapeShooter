@@ -7,8 +7,8 @@ import com.badlogic.gdx.math.Rectangle;
 
 public class EnemySquare extends Enemy {
 
-	public EnemySquare(TextureRegion texture, float x, float y, GameStateManager gsm) {
-		super(texture, x, y, gsm);
+	public EnemySquare(TextureRegion texture, float x, float y, GameStateManager gsm, EnemyManager em) {
+		super(texture, x, y, gsm, em);
 		
 		width = 32;
 		height = 32;

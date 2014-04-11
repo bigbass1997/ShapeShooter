@@ -20,6 +20,7 @@ public class EnemyManager {
 	private ArrayList<Enemy> enemies;
 	private ArrayList<TextureRegion> regions;
 	public final int SQUARE = 0; //SETS the ID for the type & the location, of REGIONS, for its TEXTURE//
+	public final int RECTANGLE = 1;
 
 	private GameStateManager gsm;
 	private DrawManager dm;
@@ -33,19 +34,18 @@ public class EnemyManager {
 		int AREA = 32;
 		int SIZE = 256;
 		regions = new ArrayList<TextureRegion>(SIZE);
-		for(int c = 0; c < Math.sqrt(SIZE); c++){
-			for(int r = 0; r < Math.sqrt(SIZE); r++){
-				regions.add(new TextureRegion(spritesheet, (c * AREA), (r * AREA), AREA, AREA));
-			}
-		}
+		regions.add(new TextureRegion(spritesheet, 0, 0, AREA, AREA));
+		regions.add(new TextureRegion(spritesheet, 32, 0, AREA * 2, AREA));
 		//regions.get(SQUARE).setRegion(regions.get(SQUARE).getRegionX(), regions.get(SQUARE).getRegionY(), AREA * 2, AREA);
 		
 		enemies = new ArrayList<Enemy>(100);
 		////HOW TO ADD: enemies.add(new Enemy_TYPE_OF_ENEMY(X, Y, regions.get(TEST)));
 	}
 	
-	public void deployEnemy(int type, float x, float y){
-		if(type == SQUARE) enemies.add(new EnemySquare(regions.get(SQUARE), x, y, gsm));
+	public void deployEnemy(int type, float x, float y, EnemyManager em){
+		if(type == SQUARE) enemies.add(new EnemySquare(regions.get(SQUARE), x, y, gsm, em));
+		if(type == RECTANGLE) enemies.add(new EnemyRectangle(regions.get(RECTANGLE), x, y, gsm, em));
+		
 		//else if(type == SOMETHING_ELSE) enemies.add(new EnemySOMETHING_ELSE(regions.get(SOMETHING_ELSE), x, y));
 	}
 	
