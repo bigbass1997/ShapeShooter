@@ -13,6 +13,11 @@ To shoot press/hold the SPACEBAR.
 You can go to the Upgrades Menu by pressing 'U' and pressing it again will return you to the game.
 
 ------
+__Stable Releases__  
+*[Adfly]* [Release Build_30](http://adf.ly/2258516/shapeshooter-b30)  
+*[Direct]* [Release Build_30](https://dl.dropboxusercontent.com/u/39520441/Programming/ShapeShooter/ShapeShooter_b30.jar)
+
+------
 __Future Development__  
 The game is still under HEAVY development and is still in its early stages.  
 Below is a list of what still needs to be done.
@@ -21,11 +26,11 @@ Below is a list of what still needs to be done.
 - Level Selection Screen
 - Add more upgrades
 - Redisign player into a cube
-- Implement Projectile damage to Enemies
-- Implement Money drops from destoried Enemies
-- Design an easy way to create/customize levels and enemy deployments
-  - Text file configs?
-  - Data file containing times, positions, and enemy types?
+- ~~Implement Projectile damage to Enemies~~
+- ~~Implement Money drops from destoried Enemies~~
+- ~~Design an easy way to create/customize levels and enemy deployments~~
+  - ~~Text file configs?~~
+  - ~~Data file containing times, positions, and enemy types?~~
 
 This list is likely to expand later...
 
