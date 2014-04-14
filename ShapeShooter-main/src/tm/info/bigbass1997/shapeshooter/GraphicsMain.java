@@ -18,7 +18,7 @@ public class GraphicsMain implements ApplicationListener {
 	
 	private GameStateManager gsm;
 	
-	public SettingsManager sm;
+	public static SettingsManager sm;
 	
 	public static float sWidth;
 	public static float sHeight;
@@ -32,9 +32,9 @@ public class GraphicsMain implements ApplicationListener {
 		batch = new SpriteBatch();
 		
 		Gdx.input.setInputProcessor(new GameInputProcessor());
-		
-		gsm = new GameStateManager();
+
 		sm = new SettingsManager();
+		gsm = new GameStateManager();
 	}
 
 	@Override

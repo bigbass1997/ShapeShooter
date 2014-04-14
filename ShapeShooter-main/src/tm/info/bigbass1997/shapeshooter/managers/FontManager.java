@@ -5,11 +5,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 public class FontManager {
 	
-	public BitmapFont fs1 = new BitmapFont(Gdx.files.internal("data/The-First-Fontstruction.fnt"),
+	public BitmapFont fs1 = new BitmapFont(Gdx.files.internal("data/The-First-FontStruction.fnt"),
 			Gdx.files.internal("data/The-First-FontStruction_0.png"), false);
-	public BitmapFont fs2 = new BitmapFont(Gdx.files.internal("data/The-First-Fontstruction.fnt"),
+	public BitmapFont fs2 = new BitmapFont(Gdx.files.internal("data/The-First-FontStruction.fnt"),
 			Gdx.files.internal("data/The-First-FontStruction_0.png"), false);
-	public BitmapFont fs3 = new BitmapFont(Gdx.files.internal("data/The-First-Fontstruction.fnt"),
+	public BitmapFont fs3 = new BitmapFont(Gdx.files.internal("data/The-First-FontStruction.fnt"),
 			Gdx.files.internal("data/The-First-FontStruction_0.png"), false);
 	
 	public FontManager(){

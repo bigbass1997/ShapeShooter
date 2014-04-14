@@ -1,15 +1,12 @@
 package tm.info.bigbass1997.shapeshooter.entities.enemies;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import tm.info.bigbass1997.shapeshooter.entities.projectiles.Projectile;
 import tm.info.bigbass1997.shapeshooter.entities.projectiles.ProjectileManager;
 import tm.info.bigbass1997.shapeshooter.managers.DrawManager;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;

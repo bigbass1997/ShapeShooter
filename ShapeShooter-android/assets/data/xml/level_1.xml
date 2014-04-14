@@ -1,0 +1,32 @@
+<enemies>
+	<enemy type="0">
+		<x>10</x>
+		<releaseTime>5</releaseTime>
+	</enemy>
+	<enemy type="0">
+		<x>50</x>
+		<releaseTime>10</releaseTime>
+	</enemy>
+	<enemy type="0">
+		<x>100</x>
+		<releaseTime>15</releaseTime>
+	</enemy>
+	
+	<enemy type="0">
+		<x>400</x>
+		<releaseTime>20</releaseTime>
+	</enemy>
+	<enemy type="0">
+		<x>450</x>
+		<releaseTime>25</releaseTime>
+	</enemy>
+	<enemy type="0">
+		<x>500</x>
+		<releaseTime>30</releaseTime>
+	</enemy>
+	
+	<enemy type="1">
+		<x>300</x>
+		<releaseTime>40</releaseTime>
+	</enemy>
+</enemies>

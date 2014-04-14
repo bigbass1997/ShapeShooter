@@ -1,12 +1,20 @@
 package tm.info.bigbass1997.shapeshooter.gamestates;
 
+import java.util.ArrayList;
+
 import tm.info.bigbass1997.shapeshooter.GraphicsMain;
+import tm.info.bigbass1997.shapeshooter.entities.enemies.ElementEnemy;
 import tm.info.bigbass1997.shapeshooter.managers.GameKeys;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
 public class PlayState extends GameState{
 	
-	public float time;
+	protected ArrayList<ElementEnemy> enemiesToDeploy;
+	
+	public int sysTime;
+	public int gameTime;
+	
+	private int startTime;
 	
 	protected PlayState(GameStateManager gsm) {
 		super(gsm);
@@ -16,12 +24,16 @@ public class PlayState extends GameState{
 	public void init() {
 		//Example of how to "deploy" an enemy.
 		//em.deployEnemy(em.RECTANGLE, 20, GraphicsMain.sHeight, em);
+		
+		gameTime = 0;
+		startTime = (int) ((System.nanoTime() / 1000000000));
 	}
 
 	@Override
 	public void update(float delta) {
-		time = (float) ((System.nanoTime() / 1000000000));
-		System.out.println(time);
+		sysTime = (int) ((System.nanoTime() / 1000000000));
+		gameTime = sysTime - startTime;
+		
 		//Get User Input
 		handleInput(delta);
 		
@@ -36,6 +48,16 @@ public class PlayState extends GameState{
 		}*/
 		
 		em.update(delta, pm);
+		
+		if(enemiesToDeploy != null){
+			for(int i = 0; i < enemiesToDeploy.size(); i++){
+				ElementEnemy enemy = enemiesToDeploy.get(i);
+				if(gameTime >= enemy.releaseTime && !enemy.deployed){
+					em.deployEnemy(enemy.type, enemy.x, GraphicsMain.sHeight + 50.0f, em);
+					enemy.deployed = true;
+				}
+			}
+		}
 	}
 
 	@Override
