@@ -4,10 +4,7 @@ import com.badlogic.gdx.utils.Json;
 
 public class SettingsManager {
 	
-	private Json json;
-	
 	public SettingsManager(){
-		json = new Json();
 		
 	}
 }

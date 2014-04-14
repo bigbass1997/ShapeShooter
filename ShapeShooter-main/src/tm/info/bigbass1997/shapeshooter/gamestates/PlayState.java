@@ -6,22 +6,22 @@ import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
 public class PlayState extends GameState{
 	
+	public float time;
+	
 	protected PlayState(GameStateManager gsm) {
 		super(gsm);
 	}
 
 	@Override
 	public void init() {
-		em.deployEnemy(em.RECTANGLE, 20, GraphicsMain.sHeight, em);
-		em.deployEnemy(em.RECTANGLE, 120, GraphicsMain.sHeight, em);
-		em.deployEnemy(em.RECTANGLE, 220, GraphicsMain.sHeight, em);
-		em.deployEnemy(em.RECTANGLE, 320, GraphicsMain.sHeight, em);
-		em.deployEnemy(em.RECTANGLE, 450, GraphicsMain.sHeight, em);
-		em.deployEnemy(em.RECTANGLE, 600, GraphicsMain.sHeight, em);
+		//Example of how to "deploy" an enemy.
+		//em.deployEnemy(em.RECTANGLE, 20, GraphicsMain.sHeight, em);
 	}
 
 	@Override
 	public void update(float delta) {
+		time = (float) ((System.nanoTime() / 1000000000));
+		System.out.println(time);
 		//Get User Input
 		handleInput(delta);
 		
