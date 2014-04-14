@@ -17,8 +17,8 @@ public class UpgradeState extends GameState{
 		super(gsm);
 		
 		buttons = new ArrayList<Button>();
-		buttons.add(new Button(speedy_t1_button, 5, GraphicsMain.sHeight - 200, 200, 40, 0xCCCCCCFF, 0xFFFFFFFF));
-		buttons.add(new Button(player_speed_t1_button, 210, GraphicsMain.sHeight - 200, 200, 40, 0xCCCCCCFF, 0xFFFFFFFF));
+		buttons.add(new Button(speedy_t1_button, 5, GraphicsMain.sHeight - 200, 200, 40, 0, 0xCCCCCCFF, 0xCCCCCCFF, 0xFFFFFFFF));
+		buttons.add(new Button(player_speed_t1_button, 210, GraphicsMain.sHeight - 200, 200, 40, 0, 0xCCCCCCFF, 0xCCCCCCFF, 0xFFFFFFFF));
 	}
 	
 	@Override

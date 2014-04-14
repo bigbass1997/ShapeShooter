@@ -2,6 +2,8 @@ package tm.info.bigbass1997.shapeshooter.managers;
 
 import tm.info.bigbass1997.shapeshooter.entities.Player;
 import tm.info.bigbass1997.shapeshooter.gamestates.*;
+import tm.info.bigbass1997.shapeshooter.gamestates.levels.Level1State;
+import tm.info.bigbass1997.shapeshooter.gamestates.levels.LevelSelectState;
 
 public class GameStateManager {
 	
@@ -23,7 +25,7 @@ public class GameStateManager {
 			LEVEL6STATE = 106, LEVEL7STATE = 107, LEVEL8STATE = 108, LEVEL9STATE = 109, LEVEL10STATE = 110;
 	
 	public GameStateManager(){
-		setState(LEVEL1STATE);
+		setState(LEVELSELECTSTATE);
 		lastState = 0;
 		
 		player = new Player();
@@ -36,12 +38,13 @@ public class GameStateManager {
 		lastGameState = gameState;
 		if(state == MENUSTATE){
 			//gameState = new MenuState(this);
+			System.out.println("Imagine you went to the menu...");
 		}
 		if(state == LEVEL1STATE){
 			gameState = new Level1State(this);
 		}
 		if(state == LEVELSELECTSTATE){
-			//gameState = new LevelSelectState(this);
+			gameState = new LevelSelectState(this);
 		}
 		if(state == UPGRADESTATE){
 			gameState = new UpgradeState(this);

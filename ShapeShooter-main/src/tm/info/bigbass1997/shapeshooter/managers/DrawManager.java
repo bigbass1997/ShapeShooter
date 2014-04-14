@@ -15,11 +15,17 @@ public class DrawManager {
 	}
 	
 	public void Rect(float x, float y, float width, float height){
-		Rect(x, y, width, height, 0xFFFFFFFF);
+		Rect(x, y, width, height, 0xFFFFFFFF, ShapeType.Filled);
 	}
 	public void Rect(float x, float y, float width, float height, int color){
+		Rect(x, y, width, height, color, ShapeType.Filled);
+	}
+	public void Rect(float x, float y, float width, float height, ShapeType type){
+		Rect(x, y, width, height, 0xFFFFFFFF, type);
+	}
+	public void Rect(float x, float y, float width, float height, int color, ShapeType type){
 		sr.setColor(new Color(color));
-		sr.begin(ShapeType.Filled);
+		sr.begin(type);
 		sr.rect(x, y, width, height);
 		sr.end();
 	}
