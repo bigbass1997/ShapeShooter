@@ -33,7 +33,10 @@ public class GameStateManager {
 	}
 	
 	public void setState(int state){
-		if(gameState != null) gameState.dispose();
+		if(gameState != null){
+			System.out.println("GSM gameState Disposing");
+			gameState.dispose();
+		}
 		lastState = currentState;
 		lastGameState = gameState;
 		if(state == MENUSTATE){
@@ -64,6 +67,7 @@ public class GameStateManager {
 	}
 	
 	public void returnToLastState(){
+		gameState.dispose();
 		gameState = lastGameState;
 	}
 	

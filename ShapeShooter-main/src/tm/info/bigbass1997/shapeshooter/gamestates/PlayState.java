@@ -80,9 +80,4 @@ public class PlayState extends GameState{
 
 		if(GameKeys.isPressed(GameKeys.U)) gsm.setState(gsm.UPGRADESTATE);
 	}
-
-	@Override
-	public void dispose() {
-		
-	}
 }

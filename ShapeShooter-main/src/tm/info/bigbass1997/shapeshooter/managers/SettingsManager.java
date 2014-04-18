@@ -20,7 +20,6 @@ public class SettingsManager {
 	
 	public SettingsManager(){
 		reader = new XmlReader();
-		
 		init();
 	}
 	

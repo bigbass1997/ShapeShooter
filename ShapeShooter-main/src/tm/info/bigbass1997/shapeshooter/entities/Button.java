@@ -6,11 +6,14 @@ import tm.info.bigbass1997.shapeshooter.managers.FontManager;
 import tm.info.bigbass1997.shapeshooter.managers.GameKeys;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 public class Button {
+	
+	private SpriteBatch batch = new SpriteBatch();
 	
 	private String name;
 	private float x, y, width, height;
@@ -61,14 +64,25 @@ public class Button {
 			dm.Rect(x + i, y + i, width - (i * 2), height - (i * 2), bordcolor, ShapeType.Line);
 		}
 		
-		SpriteBatch batch = new SpriteBatch();
-		batch.setColor(tcolor);
 		batch.begin();
-		if(size == FULL) fm.fs1.draw(batch, name, x + (width / 2) - (fm.fs1.getBounds(name).width / 2), y + (height / 2) + (fm.fs1.getBounds(name).height / 2));
-		if(size == HALF) fm.fs2.draw(batch, name, x + (width / 2) - (fm.fs2.getBounds(name).width / 2), y + (height / 2) + (fm.fs2.getBounds(name).height / 2));
-		if(size == DEFAULT) fm.fs3.draw(batch, name, x + (width / 2) - (fm.fs3.getBounds(name).width / 2), y + (height / 2) + (fm.fs3.getBounds(name).height / 2));
-		if(size == DOUBLE) fm.fs4.draw(batch, name, x + (width / 2) - (fm.fs4.getBounds(name).width / 2), y + (height / 2) + (fm.fs4.getBounds(name).height / 2));
+		if(size == FULL){
+			fm.fs1.setColor(new Color(tcolor));
+			dm.String(name, x + (width / 2) - (fm.fs1.getBounds(name).width / 2), y + (height / 2) + (fm.fs1.getBounds(name).height / 2), fm.fs1);
+		}
+		if(size == HALF){
+			fm.fs2.setColor(new Color(tcolor));
+			dm.String(name, x + (width / 2) - (fm.fs2.getBounds(name).width / 2), y + (height / 2) + (fm.fs2.getBounds(name).height / 2), fm.fs2);
+		}
+		if(size == DEFAULT){
+			fm.fs3.setColor(new Color(tcolor));
+			dm.String(name, x + (width / 2) - (fm.fs3.getBounds(name).width / 2), y + (height / 2) + (fm.fs3.getBounds(name).height / 2), fm.fs3);
+		}
+		if(size == DOUBLE){
+			fm.fs4.setColor(new Color(tcolor));
+			dm.String(name, x + (width / 2) - (fm.fs4.getBounds(name).width / 2), y + (height / 2) + (fm.fs4.getBounds(name).height / 2), fm.fs4);
+		}
 		batch.end();
+		
 	}
 	
 	public void update(float delta){
@@ -106,4 +120,9 @@ public class Button {
 	public boolean isPressed(){ return isPressed;}
 	
 	public void setName(String name){ this.name = name;}
+	
+	public void dispose(){
+		System.out.println("Button Disposing");
+		batch.dispose();
+	}
 }

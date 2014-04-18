@@ -46,7 +46,7 @@ public class MenuState extends GameState {
 		}
 		
 		String title = "Welcome to " + SettingsManager.title + "!";
-		dm.String(title, (GraphicsMain.sWidth / 2) - (fm.fs4.getBounds(title).width / 2), GraphicsMain.sHeight - 100, fm.fs4, 0xFFFFFFDD);
+		dm.String(title, (GraphicsMain.sWidth / 2) - (fm.fslarge1.getBounds(title).width / 2), GraphicsMain.sHeight - 100, fm.fslarge1, 0xFFFFFFDD);
 		dm.String(SettingsManager.version + "", 5, GraphicsMain.sHeight - 5, fm.fs3, 0x00FFFFFF);
 	}
 
@@ -57,7 +57,8 @@ public class MenuState extends GameState {
 
 	@Override
 	public void dispose() {
-
+		System.out.println("MenuState Disposing");
+		sr.dispose();
 	}
 
 }

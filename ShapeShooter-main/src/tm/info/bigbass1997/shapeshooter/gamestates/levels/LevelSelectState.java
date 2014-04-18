@@ -12,6 +12,7 @@ import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 public class LevelSelectState extends GameState {
 	
 	ArrayList<Button> buttons;
+	ArrayList<Boolean> locked;
 	
 	public LevelSelectState(GameStateManager gsm) {
 		super(gsm);
@@ -28,9 +29,14 @@ public class LevelSelectState extends GameState {
 		for(int i = 0; i < 25; i++){
 			buttons.get(1 + i).setName(String.valueOf(1 + i));
 		}
-		
 		buttons.add(new Button("Boss", 50, 30, 600, 110, Button.DOUBLE));
 		buttons.add(new Button("Shop", GraphicsMain.sWidth - 92, GraphicsMain.sHeight - 49, 80, 35, 3, 0x000000FF, 0xAAAAAAff, 0xFFFFFFFF));
+		
+		locked = new ArrayList<Boolean>();
+		for(int i = 0; i < 26; i++){
+			locked.add(false);
+		}
+		locked.set(0, true);
 	}
 
 	@Override
@@ -46,7 +52,7 @@ public class LevelSelectState extends GameState {
 			
 			if(b.getName().equals("Menu") && b.isPressed()) gsm.setState(gsm.MENUSTATE);
 			if(b.getName().equals("Shop") && b.isPressed()) gsm.setState(gsm.UPGRADESTATE);
-			if(b.getName().length() == 1 && b.isPressed()) gsm.setState(Integer.valueOf(b.getName()) + 100);
+			if(b.getName().length() == 1 && b.isPressed() && locked.get(Integer.valueOf(b.getName()) - 1)) gsm.setState(Integer.valueOf(b.getName()) + 100);
 		}
 	}
 
@@ -62,6 +68,17 @@ public class LevelSelectState extends GameState {
 		for(int i = 0; i < buttons.size(); i++){
 			buttons.get(i).draw(sr, dm, fm);
 		}
+		for(int i = 0; i < locked.size() - 1; i++){
+			if(!locked.get(i)){
+				dm.String("LOCKED", buttons.get(i + 1).getX() + 7, buttons.get(i + 1).getY() + 75, fm.fs3, 0xFF0000FF);
+				dm.String("LOCKED", buttons.get(i + 1).getX() + 7, buttons.get(i + 1).getY() + 17, fm.fs3, 0xFF0000FF);
+			}
+		}
+		int l = locked.size();
+		if(!locked.get(l - 1)){
+			dm.String("LOCKED", buttons.get(l).getX() + 50, buttons.get(l).getY() + 78, fm.fslarge1, 0xFF0000FF);
+			dm.String("LOCKED", buttons.get(l).getX() + 395, buttons.get(l).getY() + 78, fm.fslarge1, 0xFF0000FF);
+		}
 	}
 
 	@Override
@@ -71,6 +88,10 @@ public class LevelSelectState extends GameState {
 
 	@Override
 	public void dispose() {
-		
+		System.out.println("LevelSelectState Disposing");
+		sr.dispose();
+		for(int i = 0; i < buttons.size(); i++){
+			buttons.get(i).dispose();
+		}
 	}
 }

@@ -36,6 +36,10 @@ public abstract class GameState {
 	public abstract void update(float delta);
 	public abstract void draw();
 	public abstract void handleInput(float delta);
-	public abstract void dispose();
+	
+	public void dispose(){
+		System.out.println("GameState Disposing");
+		sr.dispose();
+	}
 	
 }

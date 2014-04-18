@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 public class DrawManager {
 	
+	private SpriteBatch batch = new SpriteBatch();
 	private ShapeRenderer sr;
 	
 	public DrawManager(ShapeRenderer sr, FontManager fm){
@@ -33,7 +34,6 @@ public class DrawManager {
 		String(s, x, y, font, 0xFFFFFFFF);
 	}
 	public void String(String s, float x, float y, BitmapFont font, int color){
-		SpriteBatch batch = new SpriteBatch();
 		font.setColor(new Color(0xFFFFFFFF));
 		font.setColor(new Color(color));
 		batch.begin();

@@ -39,6 +39,7 @@ public class GraphicsMain implements ApplicationListener {
 
 	@Override
 	public void dispose() {
+		System.out.println("GraphicsMain Disposing");
 		batch.dispose();
 	}
 

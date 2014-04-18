@@ -68,6 +68,9 @@ public class UpgradeState extends GameState{
 
 	@Override
 	public void dispose() {
-		
+		sr.dispose();
+		for(int i = 0; i < buttons.size(); i++){
+			buttons.get(i).dispose();
+		}
 	}
 }
