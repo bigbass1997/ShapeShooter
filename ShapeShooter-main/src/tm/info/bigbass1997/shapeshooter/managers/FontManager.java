@@ -18,6 +18,6 @@ public class FontManager {
 		fs1.setScale(1.0f);
 		fs2.setScale(0.5f);
 		fs3.setScale(0.7f);
-		fs4.setScale(2.0f);
+		fs4.setScale(1.0f, 2.0f);
 	}
 }

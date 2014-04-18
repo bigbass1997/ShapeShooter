@@ -17,12 +17,12 @@ public class LevelSelectState extends GameState {
 		super(gsm);
 		
 		buttons = new ArrayList<Button>();
-		buttons.add(new Button("Back", 14, GraphicsMain.sHeight - 49, 80, 35, 3, 0x000000FF, 0xAAAAAAFF, 0xFFFFFFFF));
+		buttons.add(new Button("Menu", 14, GraphicsMain.sHeight - 49, 80, 35, 3, 0x000000FF, 0xAAAAAAFF, 0xFFFFFFFF));
 
 		float bx = 105, by = GraphicsMain.sHeight - 150, bwidth = 80, bheight = 80, buffer = 18;
 		for(int r = 0; r < 5; r++){
 			for(int c = 0; c < 5; c++){
-				buttons.add(new Button("", bx + (c * bwidth) + (c * buffer), by - (r * bheight) - (r * buffer), bwidth, bheight, Button.FULL));
+				buttons.add(new Button("", bx + (c * bwidth) + (c * buffer), by - (r * bheight) - (r * buffer), bwidth, bheight, Button.DOUBLE));
 			}
 		}
 		for(int i = 0; i < 25; i++){
@@ -30,6 +30,7 @@ public class LevelSelectState extends GameState {
 		}
 		
 		buttons.add(new Button("Boss", 50, 30, 600, 110, Button.DOUBLE));
+		buttons.add(new Button("Shop", GraphicsMain.sWidth - 92, GraphicsMain.sHeight - 49, 80, 35, 3, 0x000000FF, 0xAAAAAAff, 0xFFFFFFFF));
 	}
 
 	@Override
@@ -43,7 +44,9 @@ public class LevelSelectState extends GameState {
 			Button b = buttons.get(i);
 			b.update(delta);
 			
-			if(b.getName().equals("Back") && b.isPressed()) gsm.setState(gsm.MENUSTATE);
+			if(b.getName().equals("Menu") && b.isPressed()) gsm.setState(gsm.MENUSTATE);
+			if(b.getName().equals("Shop") && b.isPressed()) gsm.setState(gsm.UPGRADESTATE);
+			if(b.getName().length() == 1 && b.isPressed()) gsm.setState(Integer.valueOf(b.getName()) + 100);
 		}
 	}
 

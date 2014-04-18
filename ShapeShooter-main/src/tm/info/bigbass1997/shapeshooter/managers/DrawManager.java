@@ -34,7 +34,8 @@ public class DrawManager {
 	}
 	public void String(String s, float x, float y, BitmapFont font, int color){
 		SpriteBatch batch = new SpriteBatch();
-		batch.setColor(color);
+		font.setColor(new Color(0xFFFFFFFF));
+		font.setColor(new Color(color));
 		batch.begin();
 		font.draw(batch, s, x, y);
 		batch.end();

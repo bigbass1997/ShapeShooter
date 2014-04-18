@@ -37,8 +37,7 @@ public class GameStateManager {
 		lastState = currentState;
 		lastGameState = gameState;
 		if(state == MENUSTATE){
-			//gameState = new MenuState(this);
-			System.out.println("Imagine you went to the menu...");
+			gameState = new MenuState(this);
 		}
 		if(state == LEVEL1STATE){
 			gameState = new Level1State(this);

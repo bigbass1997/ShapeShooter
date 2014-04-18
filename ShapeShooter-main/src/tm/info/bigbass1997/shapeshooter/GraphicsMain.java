@@ -23,6 +23,9 @@ public class GraphicsMain implements ApplicationListener {
 	public static float sWidth;
 	public static float sHeight;
 	
+	public static final String title = "ShapeShooter";
+	public static final String version = "build_33";
+	
 	@Override
 	public void create() {
 		sWidth = Gdx.graphics.getWidth();
