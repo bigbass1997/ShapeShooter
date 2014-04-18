@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import tm.info.bigbass1997.shapeshooter.GraphicsMain;
 import tm.info.bigbass1997.shapeshooter.entities.Button;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
+import tm.info.bigbass1997.shapeshooter.managers.SettingsManager;
 
 public class MenuState extends GameState {
 	
@@ -44,9 +45,9 @@ public class MenuState extends GameState {
 			buttons.get(i).draw(sr, dm, fm);
 		}
 		
-		String title = "Welcome to ShapeShooter!";
+		String title = "Welcome to " + SettingsManager.title + "!";
 		dm.String(title, (GraphicsMain.sWidth / 2) - (fm.fs4.getBounds(title).width / 2), GraphicsMain.sHeight - 100, fm.fs4, 0xFFFFFFDD);
-		dm.String(GraphicsMain.version, 5, GraphicsMain.sHeight - 5, fm.fs2, 0xFF0000FF);
+		dm.String(SettingsManager.version + "", 5, GraphicsMain.sHeight - 5, fm.fs3, 0x00FFFFFF);
 	}
 
 	@Override

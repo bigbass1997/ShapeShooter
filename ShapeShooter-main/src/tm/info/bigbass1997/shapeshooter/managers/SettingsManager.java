@@ -15,19 +15,26 @@ public class SettingsManager {
 	
 	private XmlReader reader;
 	
+	public static String title;
+	public static String version;
+	
 	public SettingsManager(){
 		reader = new XmlReader();
 		
-		/* Example of use...
+		init();
+	}
+	
+	public void init(){
+		FileHandle file = Gdx.files.internal("data/xml/game.xml");
+		Element root;
 		try {
 			root = reader.parse(file);
 		} catch (IOException e) {
 			e.printStackTrace();
+			return;
 		}
-		players = root.getChildrenByName("player");
-		for(Element child : players){
-			System.out.println(child.getAttribute("name") +  " | " + child.getChildByName("age").getText() + " | " + child.getChildByName("gender").getText());
-		}*/
+		title = root.getChildByName("title").getText();
+		version = root.getChildByName("version").getText();
 	}
 	
 	public ArrayList<ElementEnemy> getLevelEnemies(String PATH){
