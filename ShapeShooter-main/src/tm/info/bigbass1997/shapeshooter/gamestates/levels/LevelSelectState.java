@@ -11,8 +11,8 @@ import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
 
 public class LevelSelectState extends GameState {
 	
-	ArrayList<Button> buttons;
-	ArrayList<Boolean> locked;
+	public ArrayList<Button> buttons;
+	public static ArrayList<Boolean> locked;
 	
 	public LevelSelectState(GameStateManager gsm) {
 		super(gsm);
@@ -93,5 +93,15 @@ public class LevelSelectState extends GameState {
 		for(int i = 0; i < buttons.size(); i++){
 			buttons.get(i).dispose();
 		}
+	}
+	
+	public static void unlockNextLevel(){
+		int l = 0;
+		for(int i = 0; i < locked.size(); i++){
+			System.out.println("i: " + i);
+			if(locked.get(i).booleanValue()) l = i;
+			System.out.println("l: " + l);
+		}
+		locked.set(l + 1, true);
 	}
 }
