@@ -66,4 +66,8 @@ public class EnemyManager {
 			}
 		}
 	}
+	
+	public ArrayList<Enemy> getEnemies(){
+		return enemies;
+	}
 }
