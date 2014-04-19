@@ -14,16 +14,15 @@ You can go to the Upgrades Menu by pressing 'U' and pressing it again will retur
 
 ------
 __Stable Releases__  
-*[Adfly]* [Release Build_30](http://adf.ly/2258516/shapeshooter-b30)  
-*[Direct]* [Release Build_30](https://dl.dropboxusercontent.com/u/39520441/Programming/ShapeShooter/ShapeShooter_b30.jar)
+*[Direct]* [Release Build_35](https://dl.dropboxusercontent.com/u/39520441/Programming/ShapeShooter/ShapeShooter_b35.jar)
 
 ------
 __Future Development__  
 The game is still under HEAVY development and is still in its early stages.  
 Below is a list of what still needs to be done.
 - Enemies
-- Levels
-- Level Selection Screen
+- Design Levels
+- ~~Level Selection Screen~~
 - Add more upgrades
 - Redisign player into a cube
 - ~~Implement Projectile damage to Enemies~~
