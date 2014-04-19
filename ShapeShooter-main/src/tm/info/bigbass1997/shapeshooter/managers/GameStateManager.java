@@ -3,6 +3,7 @@ package tm.info.bigbass1997.shapeshooter.managers;
 import tm.info.bigbass1997.shapeshooter.entities.Player;
 import tm.info.bigbass1997.shapeshooter.gamestates.*;
 import tm.info.bigbass1997.shapeshooter.gamestates.levels.Level1State;
+import tm.info.bigbass1997.shapeshooter.gamestates.levels.Level2State;
 import tm.info.bigbass1997.shapeshooter.gamestates.levels.LevelSelectState;
 
 public class GameStateManager {
@@ -44,6 +45,9 @@ public class GameStateManager {
 		}
 		if(state == LEVEL1STATE){
 			gameState = new Level1State(this);
+		}
+		if(state == LEVEL2STATE){
+			gameState = new Level2State(this);
 		}
 		if(state == LEVELSELECTSTATE){
 			gameState = new LevelSelectState(this);

@@ -18,6 +18,7 @@ public class EnemyManager {
 	private ArrayList<TextureRegion> regions;
 	public final int SQUARE = 0; //SETS the ID for the type & the location, of REGIONS, for its TEXTURE//
 	public final int RECTANGLE = 1;
+	public final int TRIANGLE = 2;
 
 	private GameStateManager gsm;
 	private DrawManager dm;
@@ -33,6 +34,7 @@ public class EnemyManager {
 		regions = new ArrayList<TextureRegion>(SIZE);
 		regions.add(new TextureRegion(spritesheet, 0, 0, AREA, AREA));
 		regions.add(new TextureRegion(spritesheet, 32, 0, AREA * 2, AREA));
+		regions.add(new TextureRegion(spritesheet, 96, 0, AREA, AREA));
 		//regions.get(SQUARE).setRegion(regions.get(SQUARE).getRegionX(), regions.get(SQUARE).getRegionY(), AREA * 2, AREA);
 		
 		enemies = new ArrayList<Enemy>(100);
@@ -42,6 +44,7 @@ public class EnemyManager {
 	public void deployEnemy(int type, float x, float y, EnemyManager em){
 		if(type == SQUARE) enemies.add(new EnemySquare(regions.get(SQUARE), x, y, gsm, em));
 		if(type == RECTANGLE) enemies.add(new EnemyRectangle(regions.get(RECTANGLE), x, y, gsm, em));
+		if(type == TRIANGLE) enemies.add(new EnemyTriangle(regions.get(TRIANGLE), x, y, gsm, em));
 		
 		//else if(type == SOMETHING_ELSE) enemies.add(new EnemySOMETHING_ELSE(regions.get(SOMETHING_ELSE), x, y));
 	}
