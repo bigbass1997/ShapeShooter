@@ -17,6 +17,8 @@ public class SettingsManager {
 	
 	public static String title;
 	public static String version;
+
+	public static ArrayList<Boolean> unlocked;
 	
 	public SettingsManager(){
 		reader = new XmlReader();
@@ -34,6 +36,12 @@ public class SettingsManager {
 		}
 		title = root.getChildByName("title").getText();
 		version = root.getChildByName("version").getText();
+
+		unlocked = new ArrayList<Boolean>();
+		for(int i = 0; i < 26; i++){
+			unlocked.add(false);
+		}
+		unlocked.set(0, true);
 	}
 	
 	public ArrayList<ElementEnemy> getLevelEnemies(String PATH){
@@ -52,5 +60,14 @@ public class SettingsManager {
 		}
 		
 		return enemies;
+	}
+
+	public static void unlockNextLevel(){
+		int l = 0;
+		for(int i = 0; i < unlocked.size(); i++){
+			if(unlocked.get(i)) l = i;
+			System.out.println("l: " + l);
+		}
+		unlocked.set(l + 1, true);
 	}
 }

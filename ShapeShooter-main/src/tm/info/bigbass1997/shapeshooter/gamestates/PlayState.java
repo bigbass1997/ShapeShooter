@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import tm.info.bigbass1997.shapeshooter.GraphicsMain;
 import tm.info.bigbass1997.shapeshooter.entities.enemies.ElementEnemy;
-import tm.info.bigbass1997.shapeshooter.gamestates.levels.LevelSelectState;
 import tm.info.bigbass1997.shapeshooter.managers.GameKeys;
 import tm.info.bigbass1997.shapeshooter.managers.GameStateManager;
+import tm.info.bigbass1997.shapeshooter.managers.SettingsManager;
 
 public class PlayState extends GameState{
 	
@@ -64,7 +64,7 @@ public class PlayState extends GameState{
 		
 		if(enemiesToDeploy.isEmpty() && em.getEnemies().isEmpty()){
 			gsm.setState(gsm.LEVELSELECTSTATE);
-			LevelSelectState.unlockNextLevel();
+			SettingsManager.unlockNextLevel();
 		}
 	}
 
